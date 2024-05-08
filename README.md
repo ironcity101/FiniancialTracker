@@ -2,7 +2,14 @@
 # Financial Tracker
 ## Description of the Project
 In this capstone i made a financial Tracker that will help you track your payments and your deposits,logging them in into a ledger so you will see what you have spent your money in the past.
-![Class Diagram](screenshot2024-05-07 222205.png)
+<br>
+<br>
+<img src="Screenshot 2024-05-07 222205.png">
+<br>
+<br>
+<br>
+<br>
+src="demo">
 ## User Stories
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 - As a user, I want to be able to track my payments and deposits and everything get logged  in a file where i can see what i have spent in the past.
