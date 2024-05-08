@@ -60,9 +60,7 @@ public class FinancialTracker {
     }
 
     public static void loadTransactions(String fileName) {
-        // This method should load transactions from a file with the given file name.
-        // If the file does not exist, it should be created.
-
+       
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String line;
