@@ -86,7 +86,6 @@ public class FinancialTracker {
 
     private static void addDeposit(Scanner scanner) {
 
-        
 
         System.out.println("Enter the date : " + DATE_FORMAT);
         String userInputDate = scanner.nextLine();
@@ -192,7 +191,7 @@ public class FinancialTracker {
 
     private static void displayLedger() {
         // This method should display a table of all transactions in the `transactions` ArrayList.
-        // The table should have columns for date, time, vendor, type, and amount.
+        
         for (Transaction transaction : transactions) {
             System.out.println(transaction);
         }
