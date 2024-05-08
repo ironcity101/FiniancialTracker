@@ -85,11 +85,8 @@ public class FinancialTracker {
     }
 
     private static void addDeposit(Scanner scanner) {
-       
-        // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
-        // The amount should be a positive number.
-        // After validating the input, a new `Deposit` object should be created with the entered values.
-        // The new deposit should be added to the `transactions` ArrayList.
+
+        
 
         System.out.println("Enter the date : " + DATE_FORMAT);
         String userInputDate = scanner.nextLine();
