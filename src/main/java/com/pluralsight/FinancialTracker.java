@@ -196,8 +196,7 @@ public class FinancialTracker {
     }
 
     private static void displayDeposits() {
-
-        // The table should have columns for date,
+        
         for (Transaction deposit : transactions) {
             double amount = deposit.getAmount();
             if (amount > 0)
