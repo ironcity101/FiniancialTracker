@@ -190,8 +190,6 @@ public class FinancialTracker {
     }
 
     private static void displayLedger() {
-        // This method should display a table of all transactions in the `transactions` ArrayList.
-        
         for (Transaction transaction : transactions) {
             System.out.println(transaction);
         }
