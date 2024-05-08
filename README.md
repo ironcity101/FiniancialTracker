@@ -40,4 +40,3 @@ List resources such as tutorials, articles, or documentation that helped you dur
 ## Thanks
 Express gratitude towards those who provided help, guidance, or resources:
 - Thank you to paul,ben manvir and husnain for helping and teaching me the things i didnt understand.
-=

@@ -64,10 +64,6 @@ public class FinancialTracker {
         // If the file does not exist, it should be created.
         // The transactions should be stored in the `transactions` ArrayList.
         // Each line of the file represents a single transaction in the following format:
-        // <date>,<time>,<vendor>,<type>,<amount>
-        // For example: 2023-04-29,13:45:00,Amazon,PAYMENT,29.99
-        // After reading all the transactions, the file should be closed.
-        // If any errors occur, an appropriate error message should be displayed
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String line;
