@@ -6,9 +6,8 @@ import java.time.LocalTime;
 public class Transaction {
     private LocalDate date;
     private LocalTime time;
-    private String  description;
+    private String description;
     private String vendor;
-
     private double amount;
 
     public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
@@ -61,7 +60,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return date + " " + time + " " + description + " " + vendor + "  " + amount ;
+        return date + "|" + time + "|" + description + "|" + vendor + "|" + amount;
     }
-}
 
+}

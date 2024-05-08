@@ -3,6 +3,7 @@ package com.pluralsight;
 
 import java.io.*;
 import java.nio.Buffer;
+import java.security.KeyStore;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -115,11 +116,16 @@ public class FinancialTracker {
         }
         Transaction deposit = new Transaction(dateGiven, timeGiven, vendorGiven, type, amountGiven);
         transactions.add(deposit);
-        System.out.println("The deposit is added successfully");
+        try {
+            BufferedWriter theFile = new BufferedWriter(new FileWriter(FILE_NAME, true));
+            theFile.write(deposit.getDate() + "|" + deposit.getTime() + "|" + deposit.getDescription() + "|" + deposit.getAmount() + "\n");
+            theFile.close();
+        } catch (Exception e) {
+            System.out.println("The deposit is added successfully");
 
 
+        }
     }
-
 
     private static void addPayment(Scanner scanner) {
         // This method should prompt the user to enter the date, time, vendor, and amount of a payment.
@@ -127,17 +133,17 @@ public class FinancialTracker {
         // The amount should be a positive number.
         // After validating the input, a new `Payment` object should be created with the entered values.
         // The new payment should be added to the `transactions` ArrayList.
-        System.out.println("Enter the date" + DATE_FORMAT);
+        System.out.println("Enter the date " + DATE_FORMAT);
         String dateEntered = scanner.nextLine();
         LocalDate date = LocalDate.parse(dateEntered, DATE_FORMATTER);
-        System.out.println("Enter the time" + TIME_FORMAT);
+        System.out.println("Enter the time " + TIME_FORMAT);
         String timeEntered = scanner.nextLine();
         LocalTime time = LocalTime.parse(timeEntered, TIME_FORMATTER);
-        System.out.println("Enter Vendor");
+        System.out.println("Enter Vendor ");
         String vendorEntered = scanner.nextLine();
-        System.out.println("Enter type");
+        System.out.println("Enter type ");
         String typeEntered = scanner.nextLine();
-        System.out.println("Enter Desired amount");
+        System.out.println("Enter Desired amount ");
         double amountEntered = Double.parseDouble(scanner.nextLine());
         if (amountEntered > 0) {
             amountEntered = amountEntered * -1;
@@ -145,7 +151,9 @@ public class FinancialTracker {
             Transaction newPayment = new Transaction(date, time, typeEntered, vendorEntered, amountEntered);
             transactions.add(newPayment);
             try {
-                BufferedWriter toFile = new BufferedWriter(new FileWriter(FILE_NAME));
+                BufferedWriter toFile = new BufferedWriter(new FileWriter(FILE_NAME, true));
+                toFile.write(newPayment.getDate() + "|" + newPayment.getTime() + "|" + newPayment.getDescription() + "|" + newPayment.getVendor() + "|" + newPayment.getAmount() + "\n");
+                toFile.close();
 
 
             } catch (Exception e) {
@@ -155,6 +163,7 @@ public class FinancialTracker {
 
         }
     }
+
 
     private static void ledgerMenu(Scanner scanner) {
         boolean running = true;
@@ -222,57 +231,13 @@ public class FinancialTracker {
     private static void reportsMenu(Scanner scanner) {
         boolean running = true;
         while (running) {
-            System.out.println("Reports");
-            System.out.println("Choose an option:");
-            System.out.println("1) Month To Date");
-            System.out.println("2) Previous Month");
-            System.out.println("3) Year To Date");
-            System.out.println("4) Previous Year");
-            System.out.println("5) Search by Vendor");
-            System.out.println("0) Back");
+
 
             String input = scanner.nextLine().trim();
 
-            switch (input) {
-                case "1":
-                    // Generate a report for all transactions within the current month,
-                    // including the date, vendor, and amount for each transaction.
-                case "2":
-                    // Generate a report for all transactions within the previous month,
-                    // including the date, vendor, and amount for each transaction.
-                case "3":
-                    // Generate a report for all transactions within the current year,
-                    // including the date, vendor, and amount for each transaction.
 
-                case "4":
-                    // Generate a report for all transactions within the previous year,
-                    // including the date, vendor, and amount for each transaction.
-                case "5":
-                    // Prompt the user to enter a vendor name, then generate a report for all transactions
-                    // with that vendor, including the date, vendor, and amount for each transaction.
-                case "0":
-                    running = false;
-                default:
-                    System.out.println("Invalid option");
-                    break;
-            }
         }
     }
-
-
-    private static void filterTransactionsByDate(LocalDate startDate, LocalDate endDate) {
-        // This method filters the transactions by date and prints a report to the console.
-        // It takes two parameters: startDate and endDate, which represent the range of dates to filter by.
-        // The method loops through the transactions list and checks each transaction's date against the date range.
-        // Transactions that fall within the date range are printed to the console.
-        // If no transactions fall within the date range, the method prints a message indicating that there are no results.
-    }
-
-    private static void filterTransactionsByVendor(String vendor) {
-        // This method filters the transactions by vendor and prints a report to the console.
-        // It takes one parameter: vendor, which represents the name of the vendor to filter by.
-        // The method loops through the transactions list and checks each transaction's vendor name against the specified vendor name.
-        // Transactions with a matching vendor name are printed to the console.
-        // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.
-    }
 }
+
+
