@@ -60,7 +60,7 @@ public class FinancialTracker {
     }
 
     public static void loadTransactions(String fileName) {
-       
+
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String line;
@@ -85,7 +85,7 @@ public class FinancialTracker {
     }
 
     private static void addDeposit(Scanner scanner) {
-        // This method should prompt the user to enter the date, time, vendor, and amount of a deposit.
+       
         // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
         // The amount should be a positive number.
         // After validating the input, a new `Deposit` object should be created with the entered values.
